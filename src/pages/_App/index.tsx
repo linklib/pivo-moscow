@@ -13,6 +13,7 @@ import {
 import { NextSeo, NextSeoProps } from 'next-seo'
 import Page404 from '../_Error/404'
 import ErrorPage from '../_Error'
+import Link from 'next/link'
 
 const withWs = true
 
@@ -52,6 +53,10 @@ const App: MainApp<AppProps> = ({ Component, pageProps }) => {
     return (
       <>
         <NextSeo {...meta} />
+        <nav>
+          <Link href="/">MainPage</Link>
+          <Link href="/beers">Beers</Link>
+        </nav>
         {content}
       </>
     )
