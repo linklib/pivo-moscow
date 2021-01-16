@@ -4,7 +4,11 @@ import { Page } from 'src/pages/_App/interfaces'
 const BeerPage: Page = () => {
   const router = useRouter()
 
-  return <>{router.query.id}</>
+  return (
+    <>
+      {router.query.id} ## {router.query.name}
+    </>
+  )
 }
 
 export default BeerPage

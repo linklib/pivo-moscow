@@ -56,6 +56,7 @@ const App: MainApp<AppProps> = ({ Component, pageProps }) => {
         <nav>
           <Link href="/">MainPage</Link>
           <Link href="/beers">Beers</Link>
+          <Link href="/about">About</Link>
         </nav>
         {content}
       </>
