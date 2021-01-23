@@ -6,7 +6,7 @@ const BeerPage: Page = () => {
 
   return (
     <>
-      {router.query.id} ## {router.query.name}
+      {router.query.id}
     </>
   )
 }
