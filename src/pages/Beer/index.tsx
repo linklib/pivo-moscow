@@ -6,11 +6,10 @@ import { NextSeo } from 'next-seo'
 import { ParsedUrlQuery } from 'querystring'
 
 import {
-  
   useBeerinfoQuery,
-  //BeerinfoQuery,
-  //BeerinfoDocument,
-  BeerinfoQueryVariables
+  BeerinfoQuery,
+  BeerinfoDocument,
+  BeerinfoQueryVariables,
   //BeerFragment,
   //BeersDocument,
   //BeersQuery,
@@ -18,19 +17,16 @@ import {
   //useBeersQuery,
 } from 'src/modules/gql/generated'
 
-
 const getVariables = (query: ParsedUrlQuery): BeerinfoQueryVariables => {
-      
-     const id = query.id
-     console.log('beers', query.id);
+  const id = query.id
+  console.log('beers', query.id)
 
-  return {      
+  return {
     where: {
-      id: id && typeof id === 'string' ?  id : '',
+      id: id && typeof id === 'string' ? id : '',
     },
   }
 }
-
 
 const BeerPage: Page = () => {
   const router = useRouter()
@@ -39,36 +35,25 @@ const BeerPage: Page = () => {
 
   const response = useBeerinfoQuery({
     variables,
-  }) 
-  
-  
-  
-    const name: any = response.data?.object.name || ''
-    const image: any = response.data?.object.image
- 
-  console.log('Data', response.data?.object);
-  
+  })
+
+  const name: any = response.data?.object.name 
+  const image: any = response.data?.object.image
+
+  console.log('Data', response.data?.object)
+
   return (
-    <>    
-     
-     
-         
-       
-           <NextSeo title={name} />
-           <h1>{name}</h1>
-    <img src={"https://pivkarta.ru/images/resized/thumb/" + image} alt={name}/>
-           
-         
-        
-
-   
-   </>
+    <>
+      <NextSeo title={name} />
+      <h1>{name}</h1>
+      <img
+        src={'https://pivkarta.ru/images/resized/thumb/' + image}
+        alt={name}
+      />
+    </>
   )
-
-  
 }
 
-/*
 BeerPage.getInitialProps = async (context) => {
   const { apolloClient } = context
 
@@ -79,15 +64,17 @@ BeerPage.getInitialProps = async (context) => {
     /**
      * Важно, чтобы все переменные запроса серверные и фронтовые совпадали,
      * иначе при рендеринге не будут получены данные из кеша и рендер будет пустой.
-     *//*
-    variables: {
-      ...getQueryParams(context.query),
-    },
+     */
+    variables: getVariables(context.query),
   })
   return {
     statusCode: !result.data.object ? 404 : undefined,
   }
-}*/
+} /* }
+   </>
+  )
+}
+*/
 
 /*
 const getVariables = (query: ParsedUrlQuery): BeersQueryVariables => {
@@ -149,9 +136,4 @@ const BeerPage: Page = () => {
 
     {/*
     <h1>{beers[0].name}</h1>
-    <img src={"https://pivkarta.ru/images/resized/thumb/" + beers[0].image} alt={beers[0].name}/>*//* }
-   </>
-  )
-}
-*/
-export default BeerPage
+    <img src={"https://pivkarta.ru/images/resized/thumb/" + beers[0].image} alt={beers[0].name}/>*/ export default BeerPage
