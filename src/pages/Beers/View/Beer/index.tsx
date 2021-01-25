@@ -16,6 +16,7 @@ const Beer: React.FC<BeerProps> = ({ object }) => {
         href={`/beers/${object.id}`}
       >
         <a title={object.name || ''}>
+          <img src={"https://pivkarta.ru/images/resized/thumb/" + object.image} alt={object.name || ''}/>
           <span className="name">{object.name}</span>
         </a>
       </Link>

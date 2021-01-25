@@ -1,0 +1,14 @@
+query beerinfo($where: BeerWhereUniqueInput!) {
+  object: beer(where: $where) {
+    ...beer_
+  }
+}
+
+fragment beer_ on Beer {
+  id  
+  name
+  image
+  url_name
+  uri
+  description
+}
