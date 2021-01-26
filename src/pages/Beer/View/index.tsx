@@ -1,14 +1,15 @@
 import React from 'react'
 
 import Link from 'next/link'
-import { BeerProps } from './interfaces'
+import { Beer_Props } from './interfaces'
 import { BeerStyled } from './styles'
 import BeerPlace from './Place'
 
-const Beer: React.FC<BeerProps> = ({ object }) => {
-  const places =
+const Beerinfo: React.FC<Beer_Props> = ({ object }) => {
+  /*
+   const places =
     object.places?.map((n) => <BeerPlace key={n.id} object={n.Place} />) || []
-
+*/
   return (
     <BeerStyled>
       <Link
@@ -23,9 +24,9 @@ const Beer: React.FC<BeerProps> = ({ object }) => {
           <span className="name">{object.name}</span>
         </a>
       </Link>
-      {places}
+      {/*places*/}
     </BeerStyled>
   )
 }
 
-export default Beer
+export default Beerinfo

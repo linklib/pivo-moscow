@@ -34,7 +34,7 @@ function getEndpoint() {
     // const PORT = process.env.PORT || 3000
 
     // origin = `http://${hostname}:${PORT}`
-    endpoint = process.env.API_ENDPOINT || 'https://api.prisma-cms.com'
+    endpoint = process.env.API_ENDPOINT || 'https://pivkarta.ru/api/'
   }
 
   return endpoint

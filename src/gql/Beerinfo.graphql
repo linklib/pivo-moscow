@@ -5,7 +5,7 @@ query beerinfo($where: BeerWhereUniqueInput!) {
 }
 
 fragment beer_ on Beer {
-  id  
+  id
   name
   image
   url_name
